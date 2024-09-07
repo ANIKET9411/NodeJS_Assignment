@@ -2,10 +2,9 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-// Middleware to parse JSON request bodies
+ 
 app.use(express.json());
 
-// middlewares.js
 
 function validateNames(req, res, next) {
     const { firstName, lastName } = req.body;
@@ -60,7 +59,7 @@ app.use(validateNames);
 app.use(validatePassword);
 app.use(validateEmail);
 app.use(validatePhoneNumber);
-// Your routes and middleware will be added here
+ 
 app.post('/register', (req, res) => {
     const { firstName, lastName, password, email, phoneNumber } = req.body;
     res.status(200).json({
